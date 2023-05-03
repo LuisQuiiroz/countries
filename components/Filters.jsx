@@ -23,7 +23,7 @@ export function Filters () {
           <p>{region}</p>
           <ChevronIcon />
         </div>
-        <div className={`absolute w-60 py-4 px-6 mx-4 rounded-lg dark:bg-dm-dark-blue dark:text-white shadow-md ${filterRegion ? '' : 'hidden'}`}>
+        <div className={`absolute w-60 py-4 px-6 mx-4 rounded-lg bg-lm-very-light-gray dark:bg-dm-dark-blue dark:text-white shadow-md ${filterRegion ? '' : 'hidden'}`}>
           {REGIONS.slice(1).map(region => (
             <button
               key={region}
