@@ -1,12 +1,19 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function Card ({ item }) {
   const { name, flags, population, region, capital } = item
   return (
     <div key={name.common} className='rounded-lg pb-4 shadow-md dark:bg-dm-dark-blue'>
-      {/* todo: hacer que la imagen se vea bien */}
-      {/* <Image src={flags.png} alt={name} fill sizes='33vw' /> */}
-      <img src={flags.png} alt={flags.alt} className='rounded-t-lg' />
+      <Image
+        src={flags.png}
+        alt={name.common}
+        width='0'
+        height='0'
+        sizes='100vw'
+        className='w-full h-auto'
+      />
+      {/* <img src={flags.png} alt={flags.alt} className='rounded-t-lg' /> */}
       <div className='p-6'>
         <Link href={`/country/${name.common.toLowerCase()}`}>
           <h3 className='pb-4 font-k-bold text-2xl'>{name.common}</h3>

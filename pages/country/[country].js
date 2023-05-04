@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { Header } from '@/components/Header'
 import { LeftIcon } from '@/components/Icons'
+import Image from 'next/image'
 
 export default function Country ({ data }) {
   if (!data) return null // poner una pagina 404
@@ -29,7 +30,14 @@ export default function Country ({ data }) {
             <p>Back</p>
           </Link>
           <div className='pb-8'>
-            <img src={flags.png} alt={flags.alt} />
+            <Image
+              src={flags.png}
+              alt={name.common}
+              width='0'
+              height='0'
+              sizes='100vw'
+              className='w-full h-auto'
+            />
           </div>
           <div className='pb-8'>
             <h1 className='pb-4 text-2xl font-k-bold'>{name.common}</h1>
