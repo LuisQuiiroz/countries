@@ -20,8 +20,8 @@ export function Header () {
     return null
   }
   return (
-    <div className='bg-lm-very-light-gray dark:bg-dm-dark-blue '>
-      <div className='container mx-auto flex justify-between items-center h-20 px-6 sticky top-0 z-30'>
+    <div className='bg-lm-very-light-gray dark:bg-dm-dark-blue shadow-md'>
+      <div className='container mx-auto flex justify-between items-center h-20 px-6 sticky top-0 z-30 '>
         <p className='text-lg md:text-3xl font-k-bold'>Where in the world?</p>
         {
             theme === THEMES.dark

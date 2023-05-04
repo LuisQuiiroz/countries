@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import countries from './api/data.json'
+import countries from '@/pages/api/data.json'
 import { Card } from '@/components/Card'
 import { Filters } from '@/components/Filters'
 
