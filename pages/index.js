@@ -12,7 +12,7 @@ export default function Home () {
       <div className='container mx-auto'>
         <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 '>
           {countriesToShow.map((item) => (
-            <Card item={item} key={item.name} />
+            <Card item={item} key={item.name.common} />
           ))}
         </div>
       </div>

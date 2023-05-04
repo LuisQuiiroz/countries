@@ -1,3 +1,4 @@
+import Link from 'next/link'
 
 export function Card ({ item }) {
   const { name, flags, population, region, capital } = item
@@ -7,7 +8,9 @@ export function Card ({ item }) {
       {/* <Image src={flags.png} alt={name} fill sizes='33vw' /> */}
       <img src={flags.png} alt={flags.alt} className='rounded-t-lg' />
       <div className='p-6'>
-        <h3 className='pb-4 font-k-bold text-2xl'>{name.common}</h3>
+        <Link href={`/country/${name.common.toLowerCase()}`}>
+          <h3 className='pb-4 font-k-bold text-2xl'>{name.common}</h3>
+        </Link>
         <p className='font-k-bold leading-relaxed'>
           Population: <span className='font-normal'>{population.toLocaleString('en-US')}</span>
         </p>
