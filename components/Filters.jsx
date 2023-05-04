@@ -6,8 +6,8 @@ export function Filters () {
   const [region, setRegion] = useState(REGIONS[0])
   const [filterRegion, setFilterRegion] = useState(false)
   return (
-    <div className='container mx-auto'>
-      <div className='flex items-center py-4 px-6 m-4 rounded-lg gap-6 dark:bg-dm-dark-blue text-lm-dark-gray dark:text-white shadow-md'>
+    <div className='container mx-auto md:flex md:justify-between md:px-4'>
+      <div className='flex items-center py-4 px-6 m-4 rounded-lg gap-6 dark:bg-dm-dark-blue text-lm-dark-gray dark:text-white shadow-md md:w-2/3'>
         <SearchIcon />
         <input
           className='bg-transparent dark:placeholder:text-white placeholder:text-sm w-full focus:outline-none'
