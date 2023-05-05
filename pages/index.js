@@ -1,21 +1,31 @@
 import { Header } from '@/components/Header'
-import countries from '@/pages/api/data.json'
-import { Card } from '@/components/Card'
 import { Filters } from '@/components/Filters'
+import { Countries } from '@/components/Countries'
 
-export default function Home () {
-  const countriesToShow = countries.slice(0, 10)
+export default function Home ({ data }) {
   return (
     <main className='bg-lm-very-light-gray dark:bg-dm-very-dark-blue text-lm-very-dark-blue dark:text-white min-h-screen'>
       <Header />
       <Filters />
-      <div className='container mx-auto'>
-        <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 '>
-          {countriesToShow.map((item) => (
-            <Card item={item} key={item.name.common} />
-          ))}
-        </div>
-      </div>
+      <Countries countries={data} />
     </main>
   )
+}
+export async function getServerSideProps () {
+  // Obtener los datos de la API
+  const url = 'https://restcountries.com/v3.1/all'
+  const res = await fetch(url)
+  const data = await res.json()
+
+  // Obtener un índice aleatorio para el inicio del recorte
+  const startIndex = Math.floor(Math.random() * 200)
+
+  // Recortar los primeros 50 registros a partir del índice aleatorio
+  const endIndex = startIndex + 50 >= 250 ? 250 : startIndex + 50
+  const fifty = data.slice(startIndex >= 200 ? 200 : startIndex, endIndex)
+
+  // Devolver los datos como propiedades
+  return {
+    props: { data: fifty }
+  }
 }

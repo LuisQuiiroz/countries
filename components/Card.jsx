@@ -24,7 +24,7 @@ export function Card ({ item }) {
           Region: <span className='font-normal'>{region}</span>
         </p>
         <p className='font-k-bold leading-relaxed tracking-wide p-1'>
-          Capital: <span className='font-normal'>{capital[0]}</span>
+          Capital: <span className='font-normal'>{capital}</span>
         </p>
       </div>
     </div>
