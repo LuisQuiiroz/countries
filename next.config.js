@@ -16,6 +16,15 @@ const nextConfig = {
         pathname: '/**'
       }
     ]
+  },
+  async redirects () {
+    return [
+      {
+        source: '/country',
+        destination: '/',
+        permanent: true
+      }
+    ]
   }
 }
 

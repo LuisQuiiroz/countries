@@ -16,8 +16,8 @@ export default function Country ({ data }) {
   }
   const nativeName = getNativeName({ name })
 
-  const allCurrencies = currencies ? Object.values(currencies).map(currency => currency.name).join(', ') : ''
-  const allLanguages = languages ? Object.values(languages).join(', ') : ''
+  const allCurrencies = Object.keys(currencies).length > 0 ? Object.values(currencies).map(currency => currency.name).join(', ') : 'No'
+  const allLanguages = Object.keys(languages).length > 0 ? Object.values(languages).join(', ') : 'No'
 
   return (
     <div className='bg-lm-very-light-gray dark:bg-dm-very-dark-blue text-lm-very-dark-blue dark:text-white min-h-screen'>
@@ -37,6 +37,7 @@ export default function Country ({ data }) {
                 height='0'
                 sizes='100vw'
                 className='w-full h-auto rounded'
+                priority
               />
             </div>
             <div className='md:px-16 lg:w-1/2'>
@@ -73,7 +74,7 @@ export default function Country ({ data }) {
               </div>
 
               {
-                borders && (
+                borders.length > 0 && (
                   <div className='pb-8'>
                     <h3 className='text-lg font-k-bold'>Border Countries:</h3>
                     <div className='grid grid-cols-3 gap-4 py-4'>
@@ -98,11 +99,26 @@ export default function Country ({ data }) {
 }
 
 export async function getServerSideProps (context) {
-  const { country } = context.query
-  const url = 'https://restcountries.com/v3.1/name/'
-  const res = await fetch(`${url}${country}`)
-  const data = await res.json()
-  return {
-    props: { data }
+  try {
+    const { country } = context.query
+    const url = 'https://restcountries.com/v3.1/name/'
+    const res = await fetch(`${url}${country}`)
+    const data = await res.json()
+
+    // Filtra solo los datos necesarios
+    const filteredData = data.map(
+      ({ name, flags, population, region = 'No', subregion = 'No', capital = 'No', tld, currencies = {}, languages = {}, borders = [] }) => (
+        { name, flags, population, region, subregion, capital, tld, currencies, languages, borders }
+      )
+    )
+
+    return {
+      props: { data: filteredData }
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: { data: [] }
+    }
   }
 }
