@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ChevronIcon, SearchIcon } from './Icons'
+import { REGIONS } from '@/utils/constants'
 
-const REGIONS = ['Filter by Region', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']
 export function Filters () {
   const [region, setRegion] = useState(REGIONS[0])
   const [filterRegion, setFilterRegion] = useState(false)
