@@ -6,7 +6,7 @@ export function Card ({ item }) {
   return (
     <div key={name.common} className='rounded-lg pb-4 shadow-md dark:bg-dm-dark-blue'>
       <Image
-        src={flags.png}
+        src={flags.svg}
         alt={name.common}
         width='0'
         height='0'
