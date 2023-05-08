@@ -5,14 +5,13 @@ import { useFilters } from '@/hooks/useFilters'
 
 export function Filters () {
   const [filterRegion, setFilterRegion] = useState(false)
-  const [search, setSearch] = useState('')
-  const { region, getCountriesByRegion, getCountriesByName } = useFilters()
+  const { region, search, onChangeSearch, getCountriesByRegion, getCountriesByName } = useFilters()
 
   const toggleFilterRegion = () => setFilterRegion(prev => !prev)
 
   const onChangeInput = (e) => {
     const newSearch = e.target.value
-    setSearch(newSearch)
+    onChangeSearch({ newSearch })
     getCountriesByName({ name: newSearch.toLowerCase() })
   }
 

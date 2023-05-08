@@ -3,7 +3,7 @@ const baseUrl = 'https://restcountries.com/v3.1'
 // Filtra solo los datos necesarios
 const filterData = ({ data }) => (
   data.map(
-    ({ name, flags, population, region = 'No', subregion = 'No', capital = 'No', tld, currencies = {}, languages = {}, borders = [] }) => (
+    ({ name, flags, population, region = 'No', subregion = 'No', capital = 'No', tld = ['No'], currencies = {}, languages = {}, borders = [] }) => (
       { name, flags, population, region, subregion, capital, tld, currencies, languages, borders }
     )
   )

@@ -26,12 +26,12 @@ export default function Country ({ data }) {
       <Header />
       {data && (
         <div className='p-8 container mx-auto'>
-          <Link href='/' className='w-28 py-2 px-6 bg-lm-very-light-gray dark:bg-dm-dark-blue shadow-lg flex justify-center mb-8 rounded gap-2 hover:bg-lm-very-light-gray/50 dark:hover:bg-dm-dark-blue/50'>
+          <Link href='/' className='w-32 py-2 px-6 bg-lm-very-light-gray dark:bg-dm-dark-blue shadow-lg flex justify-center mt-8 mb-16 rounded gap-2 hover:bg-lm-very-light-gray/50 dark:hover:bg-dm-dark-blue/50'>
             <p className='w-6 h-6'><LeftIcon /></p>
             <p>Back</p>
           </Link>
-          <div className='lg:flex lg:gap-8'>
-            <div className='pb-8 md:w-2/3 md:mx-auto lg:p-0 lg:w-1/2'>
+          <div className='lg:flex lg:gap-28'>
+            <div className='pb-8 md:w-2/3 md:mx-auto lg:p-0 lg:w-5/12'>
               <Image
                 src={flags.svg}
                 alt={name.common}
@@ -42,9 +42,9 @@ export default function Country ({ data }) {
                 priority
               />
             </div>
-            <div className='md:px-16 lg:w-1/2'>
-              <h1 className='pb-4 text-2xl font-k-bold'>{name.common}</h1>
-              <div className='md:flex justify-between pb-8'>
+            <div className='md:px-16 lg:w-7/12 lg:px-0'>
+              <h1 className='pb-4 text-3xl font-k-bold'>{name.common}</h1>
+              <div className='md:flex justify-between pb-8 lg:gap-12'>
                 <div className='pb-8 md:p-0'>
                   <p className='font-k-bold leading-relaxed tracking-wide p-1'>
                     Native Name: <span className='font-normal'>{nativeName}</span>
@@ -77,7 +77,7 @@ export default function Country ({ data }) {
 
               {
                 borders.length > 0 && (
-                  <div className='pb-8'>
+                  <div className='pb-8 lg:pt-8'>
                     <h3 className='text-lg font-k-bold'>Border Countries:</h3>
                     <div className='grid grid-cols-3 gap-4 py-4'>
                       {borders?.map(border => (
