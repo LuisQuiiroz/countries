@@ -5,11 +5,12 @@ import { LeftIcon } from '@/components/Icons'
 import Image from 'next/image'
 
 export default function Country ({ data }) {
-  if (!data) return null // poner una pagina 404
+  if (data.length === 0) return null // poner una pagina 404
   const { name, flags, population, region, subregion, capital, tld, currencies, languages, borders } = data[0]
 
   const getNativeName = ({ name }) => {
     if (!name) return
+    if (!name.nativeName) return name.common
     const keys = Object.keys(name.nativeName)
     const lastKey = keys[keys.length - 1]
     return name.nativeName[lastKey].common
