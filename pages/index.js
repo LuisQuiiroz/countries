@@ -2,6 +2,7 @@ import { Header } from '@/components/Header'
 import { Filters } from '@/components/Filters'
 import { Countries } from '@/components/Countries'
 import { useFilters } from '@/hooks/useFilters'
+import { searchFiftyCountries } from '@/services/countries'
 
 export default function Home ({ data }) {
   const { countries } = useFilters()
@@ -25,34 +26,8 @@ export default function Home ({ data }) {
 }
 export async function getServerSideProps () {
   // Obtener los datos de la API
-  try {
-    const url = 'https://restcountries.com/v3.1/all'
-    const res = await fetch(url)
-    const data = await res.json()
-
-    // Filtra solo los datos necesarios
-    const filteredData = data.map(
-      ({ name, flags, population, region = '', capital = '' }) => (
-        { name, flags, population, region, capital }
-      ))
-
-    // Obtener un índice aleatorio para el inicio del recorte
-    const startIndex = Math.floor(Math.random() * 200)
-
-    // Recortar los primeros 50 registros a partir del índice aleatorio
-    const endIndex = startIndex + 50 >= 250 ? 250 : startIndex + 50
-    const fifty = filteredData.slice(startIndex >= 200 ? 200 : startIndex, endIndex)
-
-    // Devolver los datos como propiedades
-    return {
-      props: { data: fifty }
-    }
-  } catch (error) {
-    console.error(error)
-    return {
-      props: {
-        data: []
-      }
-    }
+  const data = await searchFiftyCountries()
+  return {
+    props: { data }
   }
 }

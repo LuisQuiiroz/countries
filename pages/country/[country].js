@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { LeftIcon } from '@/components/Icons'
 import Image from 'next/image'
+import { searchCountriesByName } from '@/services/countries'
 
 export default function Country ({ data }) {
   if (data.length === 0) return null // poner una pagina 404
@@ -100,26 +101,11 @@ export default function Country ({ data }) {
 }
 
 export async function getServerSideProps (context) {
-  try {
-    const { country } = context.query
-    const url = 'https://restcountries.com/v3.1/name/'
-    const res = await fetch(`${url}${country}`)
-    const data = await res.json()
+  const { country } = context.query
 
-    // Filtra solo los datos necesarios
-    const filteredData = data.map(
-      ({ name, flags, population, region = 'No', subregion = 'No', capital = 'No', tld, currencies = {}, languages = {}, borders = [] }) => (
-        { name, flags, population, region, subregion, capital, tld, currencies, languages, borders }
-      )
-    )
-
-    return {
-      props: { data: filteredData }
-    }
-  } catch (error) {
-    console.error(error)
-    return {
-      props: { data: [] }
-    }
+  // Obtener los datos de la API
+  const data = await searchCountriesByName({ name: country })
+  return {
+    props: { data }
   }
 }
