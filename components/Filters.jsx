@@ -30,7 +30,6 @@ export function Filters () {
           placeholder='Search for a country...'
           value={search}
           onChange={onChangeInput}
-          autoFocus
         />
       </div>
       <div>
