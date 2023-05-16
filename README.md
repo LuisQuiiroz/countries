@@ -1,38 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## App
+ 
+ https://countries-iota-three.vercel.app/
+ 
+# ecommerce 
+ 
+## Home page
 
-## Getting Started
+### Dark Mode
 
-First, run the development server:
+![image](https://user-images.githubusercontent.com/93633867/236943165-396ca9ae-c8fe-4b8d-aea5-a0e24c8ff395.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Light Mode
+![image](https://user-images.githubusercontent.com/93633867/236943231-1c313fb1-a411-432b-93c2-4199606ac59b.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Filter by Region
+![image](https://user-images.githubusercontent.com/93633867/236943622-6831f5f8-ebf8-4d3f-b9ec-7ce6534be851.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Filter by Name
+![image](https://user-images.githubusercontent.com/93633867/236943970-26d0921b-64e6-4c6a-aa01-0ebdc981f329.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Country page
+![image](https://user-images.githubusercontent.com/93633867/236944239-32be6f59-419d-407a-9906-e20c117752bc.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Mobile Design
+![image](https://user-images.githubusercontent.com/93633867/236944880-1fde2c74-d12b-4c74-9c69-51d5eaf49522.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Country Page
+![image](https://user-images.githubusercontent.com/93633867/236946344-7a01acfa-2d25-463b-8c83-f999734984d5.png)
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+In the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `npm i`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Run proyect:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### `npm run dev`
